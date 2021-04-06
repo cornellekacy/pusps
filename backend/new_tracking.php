@@ -40,6 +40,7 @@ if(isset($_POST['save'])){
  $trackdis2 = mysqli_real_escape_string($link,$_POST['sdescrip']);
  $trackhis = mysqli_real_escape_string($link,$_POST['hdescrip']);
  $trackstatus = mysqli_real_escape_string($link,$_POST['status']);
+ $trackprogress = mysqli_real_escape_string($link,$_POST['trackprogress']);
 
  if (empty($trackdis2)) {
     echo "<div class='alert alert-danger'>
@@ -53,8 +54,8 @@ else{
     $me = rand();
     $me1 = rand();
 // Attempt insert query execution
-    $sql = "INSERT INTO track (trackno,trackdis1,trackdis2,trackhis,trackstatus) 
-    VALUES ('LW-$me-1US','$trackdis1','$trackdis2','$trackhis','$trackstatus')";
+    $sql = "INSERT INTO track (trackno,trackdis1,trackdis2,trackhis,trackstatus, trackprogress) 
+    VALUES ('LW-$me-1US','$trackdis1','$trackdis2','$trackhis','$trackstatus','$trackprogress' )";
     if(mysqli_query($link, $sql)){
         echo "<div class='alert alert-success'>
         <strong>Success!</strong> Tracking Successfully Created.
@@ -104,6 +105,16 @@ mysqli_close($link);
                                         <option value="On Transit">On Transit</option>
                                         <option value="Proccessing">Proccessing</option>
                                         <option value="Delivered">Delivered</option>
+                                    </select>
+
+                                </div>
+                                  <div class="form-group">
+                                    <label ><b>Tracking Progress</b></label>
+
+                                    <select class="form-control" name="trackprogress">
+                                        <option value="2">level 2</option>
+                                        <option value="4">Level 4</option>
+                                        <option value="6">Level 6</option>
                                     </select>
 
                                 </div>

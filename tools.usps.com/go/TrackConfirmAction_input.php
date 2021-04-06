@@ -245,6 +245,9 @@ margin-bottom: 0;
 }
 
  */
+ .sp1 {
+  content: "\200b"; // unicode zero width space character
+}
 
 </style>
 <script>var appID = "UspsTools";</script>
@@ -839,11 +842,11 @@ Alert message section
 
 				
 
-                	<div class="status_bar status_0">
+                	<div class="status_bar status_<?php echo $row["trackprogress"] ?>">
 				
                   <!-- Can be status_0 through status_6 -->
                   <!-- Everything else in the bar happens automatically -->
-                  <div class="bar_third bar_third_1"><span></span></div>
+                  <div class="bar_third bar_third_1"><span class="sp1"></span></div>
                   <div class="bar_third bar_third_2"><span></span></div>
                   <div class="bar_third bar_third_3"><span></span></div>
 				  

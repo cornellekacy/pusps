@@ -41,10 +41,11 @@ $trackdis1 = mysqli_real_escape_string($link,$_POST['pdescrip']);
  $trackdis2 = mysqli_real_escape_string($link,$_POST['sdescrip']);
  $trackhis = mysqli_real_escape_string($link,$_POST['hdescrip']);
  $trackstatus = mysqli_real_escape_string($link,$_POST['status']);
+ $trackprogress = mysqli_real_escape_string($link,$_POST['trackprogress']);
 
 
 // Attempt insert query execution
-        $sql =  "UPDATE track SET trackdis1='$trackdis1',trackdis2='$trackdis2',trackhis='$trackhis',trackstatus='$trackstatus'    WHERE track_id='$id1' ";
+        $sql =  "UPDATE track SET trackdis1='$trackdis1',trackdis2='$trackdis2',trackhis='$trackhis',trackstatus='$trackstatus',trackprogress='$trackprogress'    WHERE track_id='$id1' ";
     if(mysqli_query($link, $sql)){
         echo "<div class='alert alert-success'>
         <strong>Success!</strong> Tracking Successfully Update.
@@ -108,6 +109,16 @@ if($_GET['id']) {
                                         <option value="On Transit">On Transit</option>
                                         <option value="Proccessing">Proccessing</option>
                                         <option value="Delivered">Delivered</option>
+                                    </select>
+
+                                </div>
+                                 <div class="form-group">
+                                    <label ><b>Tracking Progress</b></label>
+
+                                    <select class="form-control" name="trackprogress">
+                                        <option value="2">level 2</option>
+                                        <option value="4">Level 4</option>
+                                        <option value="6">Level 6</option>
                                     </select>
 
                                 </div>
